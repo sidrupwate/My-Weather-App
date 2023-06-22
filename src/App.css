@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Recursive&display=swap');
+/* @import url('https://fonts.googleapis.com/css?family=Muli&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap'); */
+
+.App {
+    padding: 5rem 10rem;
+    background-image: url('http://wallpapercave.com/wp/4W2pw5V.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    text-align: center;
+}
+
+.search-input{
+    width: 25vw;
+}
+
+
+.main {
+    width: 60vw;
+    margin: 2rem auto;
+    
+    border-radius: 20px;
+    background-color: transparent;
+    background-image: linear-gradient(rgba(206, 206, 206, 0.101), rgba(150, 150, 150, 0.173));
+    font-family: 'Circular', sans-serif;
+    backdrop-filter: blur(5px);
+}
+
+
+.top {
+    height: 60px;
+    background-color: #424242;
+    color: whitesmoke;
+    padding: 10px;
+    border-radius: 20px 20px 0 0;
+    font-family: 'Recursive', sans-serif;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header {
+    background-color: #424242;
+    color: whitesmoke;
+    margin: 10px 0px 0px 10px;
+    font-size: 25px;
+    border-radius: 20px 20px 0 0;
+    font-family: 'Recursive', sans-serif;
+}
+
+.day {
+    padding: 15px;
+    color: whitesmoke;
+    font-family: 'Recursive', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.temp {
+    padding: 15px;
+    color: whitesmoke;
+    font-family: 'Recursive', sans-serif;
+    font-size: 18px;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+}
+
+.sunrise-sunset {
+    padding: 15px;
+    color: whitesmoke;
+    font-family: 'Recursive', sans-serif;
+    font-size: 16px;
+}
+
+.description {
+    padding: 15px;
+    color: whitesmoke;
+    font-family: 'Recursive', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.button {
+    width: 35px;
+    height: 35px;
+}
