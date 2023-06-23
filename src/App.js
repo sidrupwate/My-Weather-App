@@ -12,9 +12,13 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
+    fetchData();
+    getLocation();
+  }, [cityName, lat, long]);
 
+  const fetchData = async () => {
+    setIsLoading(true);
+    try {
       let apiUrl = `https://api.openweathermap.org/data/2.5/weather`;
 
       if (cityName !== '') {
@@ -24,28 +28,29 @@ export default function App() {
       }
 
       apiUrl += `&units=metric&appid=30b9cf22d51e66b392eb7548ccff0118`;
+      
+      setTimeout(async () => {
+        try {
+          const response = await axios.get(apiUrl);
+          setData(response.data);
+          console.log(response.data);
+        } catch (error) {
+          console.error(error);
+        } finally {
+          setIsLoading(false);
+        }
+      }, 1000);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-      try {
-        const response = await axios.get(apiUrl);
-        setData(response.data);
-        console.log(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-
-      setIsLoading(false);
-    };
-
-    const getLocation = () => {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        setLat(position.coords.latitude);
-        setLong(position.coords.longitude);
-      });
-    };
-
-    fetchData();
-    getLocation();
-  }, [cityName, lat, long]);
+  const getLocation = () => {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      setLat(position.coords.latitude);
+      setLong(position.coords.longitude);
+    });
+  };
 
   return (
     <div>
@@ -54,6 +59,7 @@ export default function App() {
         isLoading={isLoading}
         cityName={cityName}
         onCityNameChange={(name) => setCityName(name)}
+        handleRefresh={fetchData}
       />
     </div>
   );
