@@ -42,8 +42,7 @@ const WeatherCard = ({ weatherData, cityName, onCityNameChange, isLoading, handl
   return (
     <>
       <div className='App'>
-        <Grid container>
-          <Grid xs={0} className='search'>
+        <Grid className='search-container'>
             <Input
               className='search-input'
               type="text"
@@ -52,7 +51,6 @@ const WeatherCard = ({ weatherData, cityName, onCityNameChange, isLoading, handl
               onKeyPress={handleKeyPress}
               placeholder="Enter city name"
             />
-          </Grid>
           <Button
             className='search-button'
             color="blue"
